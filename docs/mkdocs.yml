@@ -3,11 +3,8 @@ nav:
   - About Us: about-us.md
   - Current Staff: current-staff.md
   - Our Services:
-      - Linux/Unix Services: services/linux-unix.md
-      - VPN Services: services/vpn.md
-      - Computer Labs: services/computer-labs.md
-      - Remote Z-Drive Access: services/remote-z-drive.md
-      - Printing: services/printing.md
-theme: 
-  palette: 
-    scheme: slate
+      - Linux/Unix Services: our-services/linux-unix.md
+      - VPN Services: our-services/vpn.md
+      - Computer Labs: our-services/computer-labs.md
+      - Remote Z-Drive Access: our-services/remote-z-drive.md
+      - Printing: our-services/printing.md

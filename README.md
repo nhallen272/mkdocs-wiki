@@ -10,4 +10,4 @@ Docker-compose command: docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-mat
 
 ## Making changes to the wiki
 * Update the mkdocs.yml file with the added page or change
-* To realize the changes, run: docker-compose up --build
+* To realize the changes in the container, run: docker-compose up --build
