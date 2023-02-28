@@ -1,0 +1,13 @@
+site_name: Systems Group Wiki
+nav:
+  - About Us: about-us.md
+  - Current Staff: current-staff.md
+  - Our Services:
+      - Linux/Unix Services: services/linux-unix.md
+      - VPN Services: services/vpn.md
+      - Computer Labs: services/computer-labs.md
+      - Remote Z-Drive Access: services/remote-z-drive.md
+      - Printing: services/printing.md
+theme: 
+  palette: 
+    scheme: slate
