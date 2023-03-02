@@ -1,10 +1,7 @@
-# in your Dockerfile
-FROM python:3.9-slim
-#FROM squidfunk/mkdocs-material
+FROM squidfunk/mkdocs-material
 
 WORKDIR /docs
-ADD requirements.txt /docs
+COPY ./docs /docs
 
-# install optional themes with pip if using python library
-RUN pip3 install -r requirements.txt
-COPY . /docs
+EXPOSE 8000
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]

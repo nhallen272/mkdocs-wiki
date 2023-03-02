@@ -8,3 +8,7 @@ nav:
       - Computer Labs: our-services/computer-labs.md
       - Remote Z-Drive Access: our-services/remote-z-drive.md
       - Printing: our-services/printing.md
+      
+theme:
+  palette:
+    primary: slate
