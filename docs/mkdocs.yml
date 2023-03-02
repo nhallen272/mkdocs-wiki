@@ -8,7 +8,11 @@ nav:
       - Computer Labs: our-services/computer-labs.md
       - Remote Z-Drive Access: our-services/remote-z-drive.md
       - Printing: our-services/printing.md
-      
 theme:
+  name: material
   palette:
-    primary: slate
+    scheme: slate
+    primary: "slate"
+    accent: "indigo"
+  font:
+    text: "Roboto"

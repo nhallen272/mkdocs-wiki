@@ -1,0 +1,34 @@
+image: docker:latest
+
+# use dind to run the commands in the containers
+services: 
+  - docker:dind
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script: 
+  - docker-compose up -d
+  - sleep 5
+
+# *** might need to use /usr/local/bin/mkdocs
+build: 
+  stage: build
+  script: 
+    - docker-compose exec mkdocs build --clean
+
+test: 
+  stage: test
+  script: 
+    - docker-compose exec mkdocs build --clean
+    - docker-compose exec mkdocs 
+    - sleep 5
+    - curl -I http://localhost:8000
+  
+deploy:
+  stage: deploy
+  script:
+    - docker-compose exec mkdocs mkdocs build --clean
+    - echo "Deploying the site to the web server"
