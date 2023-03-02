@@ -28,5 +28,6 @@ Material
 
 ## To Do
 1. Enable the Slate theme 
+2. Setup gitlab-runner
 
 
