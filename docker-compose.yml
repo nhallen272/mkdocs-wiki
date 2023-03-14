@@ -2,10 +2,12 @@ version: '3'
 
 services:
   mkdocs:
-    container_name: mkdocs
-    image: squidfunk/mkdocs-material
+    container_name: mkdocs-rtd
+    image: mkdocs-rtd
     restart: always
     volumes:
       - ./docs:/docs
     ports:
       - "8000:8000"
+    
+    command: mkdocs build
