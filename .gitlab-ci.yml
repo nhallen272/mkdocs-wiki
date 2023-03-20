@@ -9,7 +9,6 @@ stages:
   - deploy
 
 before_script: 
-  - cd /home/systems/systems-wiki
   - docker-compose up -d
   - sleep 5
 
