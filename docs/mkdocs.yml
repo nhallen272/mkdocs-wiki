@@ -1,6 +1,7 @@
 site_name: Systems Group Wiki
 
 nav:
+  - Home: index.md
   - About Us: about-us.md
   - Current Staff: current-staff.md
   - Our Services:
@@ -16,4 +17,3 @@ theme:
     hljs_languages: 
         - yaml
         - shell
-

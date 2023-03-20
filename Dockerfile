@@ -1,10 +1,12 @@
 FROM python:slim-bullseye
 
-RUN pip install mkdocs
-
 WORKDIR /docs
 
+RUN apk update && apk add build-base
+
 COPY ./docs /docs
+
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
