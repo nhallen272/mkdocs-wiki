@@ -1,6 +1,5 @@
 # use dind to run the commands in the containers
-tags: 
-  - wiki
+
 services: 
   - docker:dind
 
