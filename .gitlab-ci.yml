@@ -1,16 +1,16 @@
 # use dind to run the commands in the containers
 
-services: 
-  - docker:dind
+#services: 
+#  - docker:dind
 
 stages:
   - build
   - test
   - deploy
 
-before_script: 
-  - docker-compose up -d
-  - sleep 5
+#before_script: 
+#  - docker-compose up -d
+#  - sleep 5
 
 # *** might need to use /usr/local/bin/mkdocs
 build: 
