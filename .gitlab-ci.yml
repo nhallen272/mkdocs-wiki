@@ -1,6 +1,6 @@
-image: docker:latest
-
 # use dind to run the commands in the containers
+tags: 
+  - wiki
 services: 
   - docker:dind
 
@@ -10,25 +10,38 @@ stages:
   - deploy
 
 before_script: 
+  - cd /home/systems/systems-wiki
   - docker-compose up -d
   - sleep 5
 
 # *** might need to use /usr/local/bin/mkdocs
 build: 
+  tags: 
+    - wiki
   stage: build
   script: 
-    - docker-compose exec mkdocs build --clean
+    - docker-compose exec mkdocs /usr/local/bin/mkdocs build --clean
+  only:
+    - main
 
 test: 
+  tags: 
+    - wiki
   stage: test
   script: 
-    - docker-compose exec mkdocs build --clean
-    - docker-compose exec mkdocs 
+    # build the mkdocs site
+    - docker-compose exec mkdocs /usr/local/bin/mkdocs build --clean
+    # output the usage page
+    - docker-compose exec mkdocs /usr/local/bin/mkdocs 
     - sleep 5
     - curl -I http://localhost:8000
   
 deploy:
+  tags: 
+    - wiki
   stage: deploy
   script:
+    - docker-compose up -d
     - docker-compose exec mkdocs mkdocs build --clean
     - echo "Deploying the site to the web server"
+    
