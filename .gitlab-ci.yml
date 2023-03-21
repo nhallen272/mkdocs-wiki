@@ -2,7 +2,7 @@
 
 #services: 
 #  - docker:dind
-
+image: mkdocs-rtd:latest
 stages:
   - build
   - test
@@ -12,7 +12,6 @@ stages:
 #  - docker-compose up -d
 #  - sleep 5
 
-# *** might need to use /usr/local/bin/mkdocs
 build: 
   tags: 
     - wiki
