@@ -1,8 +1,8 @@
 # use dind to run the commands in the containers
 
-#services: 
-#  - docker:dind
-image: mkdocs-rtd:latest
+services: 
+  - docker:dind
+
 stages:
   - build
   - test
@@ -13,6 +13,7 @@ stages:
 #  - sleep 5
 
 build: 
+  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: build
@@ -22,6 +23,7 @@ build:
     - main
 
 test: 
+  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: test
@@ -34,6 +36,7 @@ test:
     - curl -I http://localhost:8000
   
 deploy:
+  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: deploy
