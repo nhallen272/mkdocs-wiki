@@ -1,5 +1,5 @@
 # use dind to run the commands in the containers
-
+image: docker:latest
 services: 
   - docker:dind
 
@@ -8,12 +8,11 @@ stages:
   - test
   - deploy
 
-#before_script: 
-#  - docker-compose up -d
-#  - sleep 5
+before_script: 
+  - docker-compose up -d
+  - sleep 5
 
 build: 
-  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: build
@@ -23,25 +22,25 @@ build:
     - main
 
 test: 
-  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: test
   script: 
     # build the mkdocs site
-    - docker-compose exec mkdocs /usr/local/bin/mkdocs build --clean
+    - docker-compose exec mkdocs /usr/local/bin/mkdocs build
+    - docker-compose exec mkdocs /usr/local/bin/mkdocs build --strict
     # output the usage page
     - docker-compose exec mkdocs /usr/local/bin/mkdocs 
     - sleep 5
     - curl -I http://localhost:8000
   
 deploy:
-  image: mkdocs-rtd:latest
   tags: 
     - wiki
   stage: deploy
   script:
-    - docker-compose up -d
-    - docker-compose exec mkdocs mkdocs build --clean
+    - docker login -u $REGISTRY_USER -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker tag mkdocs-rtd $CI_REGISTRY/nallen/systems-wiki/mkdocs-rtd:latest
     - echo "Deploying the site to the web server"
+    - docker push $CI_REGISTRY/nallen/systems-wiki/mkdocs-rtd:latest
     
