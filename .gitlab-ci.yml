@@ -1,6 +1,6 @@
 
 variables:
-  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_HOST: tcp://172.18.6.181:2375
 
 
 stages:
